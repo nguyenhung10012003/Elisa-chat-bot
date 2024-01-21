@@ -1,0 +1,38 @@
+const {SlashCommandBuilder} = require("discord.js");
+module.exports = {
+    data: new SlashCommandBuilder()
+        .setName('languages')
+        .setDescription('Get all available languages for the League of Legends slash commands'),
+    async execute(interaction) {
+        await interaction.deferReply();
+        const languages = [
+            "cs_CZ",
+            "de_DE",
+            "el_GR",
+            "en_AU",
+            "en_GB",
+            "en_PH",
+            "en_SG",
+            "es_AR",
+            "es_ES",
+            "es_MX",
+            "fr_FR",
+            "hu_HU",
+            "it_IT",
+            "ja_JP",
+            "ko_KR",
+            "pl_PL",
+            "pt_BR",
+            "ro_RO",
+            "ru_RU",
+            "th_TH",
+            "tr_TR",
+            "vi_VN",
+            "zh_CN",
+            "zh_MY",
+            "zh_TW"
+        ];
+        const reply = languages.join('\n');
+        await interaction.editReply(reply);
+    }
+};

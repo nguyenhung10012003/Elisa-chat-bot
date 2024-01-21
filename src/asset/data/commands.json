@@ -1,0 +1,364 @@
+{
+  "commands": [
+    {
+      "group": "🎶 Music 🎶",
+      "description": "Enjoy your music in your Discord server !!\nCommands: add, autoplay, loop, pause, play, playlist, remove, skip, unpause.",
+      "commands": [
+        {
+          "name": "add",
+          "usage": "Add a song to the queue.",
+          "options": [
+            {
+              "name": "q",
+              "description": "The song/url to add to the queue.",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "autoplay",
+          "usage": "Turn on or off the autoplay.",
+          "options": [
+            {
+              "name": "state",
+              "description": "The state of the autoplay.",
+              "required": true,
+              "choices": [
+                {
+                  "name": "on",
+                  "value": "on"
+                },
+                {
+                  "name": "off",
+                  "value": "off"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "loop",
+          "usage": "Turn on or off the loop.",
+          "options": [
+            {
+              "name": "state",
+              "description": "The state of the loop.",
+              "required": true,
+              "choices": [
+                {
+                  "name": "on",
+                  "value": "on"
+                },
+                {
+                  "name": "off",
+                  "value": "off"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "pause",
+          "usage": "Pause the current song.",
+          "options": []
+        },
+        {
+          "name": "play",
+          "usage": "Play a song.",
+          "options": [
+            {
+              "name": "q",
+              "description": "The song/url to play.",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "playlist",
+          "usage": "Get the playlist of the server.",
+          "options": []
+        },
+        {
+          "name": "remove",
+          "usage": "Remove a song from the queue.",
+          "options": [
+            {
+              "name": "index",
+              "description": "The index of the song to remove.",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "skip",
+          "usage": "Skip the current song.",
+          "options": []
+        },
+        {
+          "name": "unpause",
+          "usage": "Unpause the current song.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "group": "🎮 League of Legends 🎮",
+      "description": "Get/Search for League of Legends champions information !!\nCommands: champion.",
+      "commands": [
+        {
+          "name": "champion",
+          "usage": "Search for League of Legends champions information.",
+          "options": [
+            {
+              "name": "name",
+              "description": "The name of the champion.",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "🎮 Pokémon 🎮",
+      "description": "Get/Search for pokemons, items, moves, types, abilities !!\nCommands: pokemon, item, move, type, ability.",
+      "commands": [
+        {
+          "name": "pokemon",
+          "usage": "Search for a pokemon.",
+          "options": [
+            {
+              "name": "name",
+              "description": "The name of the pokemon.",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "item",
+          "usage": "Search for an item.",
+          "options": [
+            {
+              "name": "name",
+              "description": "The name of the item.",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "move",
+          "usage": "Search for a move.",
+          "options": [
+            {
+              "name": "name",
+              "description": "The name of the move.",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "type",
+          "usage": "Search for a type.",
+          "options": [
+            {
+              "name": "name",
+              "description": "The name of the type.",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "ability",
+          "usage": "Search for an ability.",
+          "options": [
+            {
+              "name": "name",
+              "description": "The name of the ability.",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "🥗 Food 🧑‍🍳",
+      "description": "Get/Search for dishes !!\nCommands: food.",
+      "commands": [
+        {
+          "name": "food",
+          "usage": "Search for a dish.",
+          "options": [
+            {
+              "name": "name",
+              "description": "The name of the dish.",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "📺 Anime and manga 📖",
+      "description": "Get/Search for anime or manga !!\nCommands: anime, manga, character. ",
+      "commands": [
+        {
+          "name": "anime",
+          "usage": "Search for an anime.",
+          "options": [
+            {
+              "name": "name",
+              "description": "The name of the anime.",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "manga",
+          "usage": "Search for a manga.",
+          "options": [
+            {
+              "name": "name",
+              "description": "The name of the manga.",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "character",
+          "usage": "Search for a character.",
+          "options": [
+            {
+              "name": "name",
+              "description": "The name of the character.",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "🔖 Quote 📜",
+      "description": "Get quotes of a celebrity or a anime/manga character !!\nCommands: quote, quote-anime.",
+      "commands": [
+        {
+          "name": "quote",
+          "usage": "Get a random quote of a celebrity.",
+          "options": []
+        },
+        {
+          "name": "quote-anime",
+          "usage": "Get a random quote of a anime/manga character.",
+          "options": []
+        }
+      ]
+    },
+    {
+      "group": "🤖 GPT 🖼️",
+      "description": "Use chatGPT, Dall-E 3 in your server.\nCommands: ask, imagine.",
+      "commands": [
+        {
+          "name": "ask",
+          "usage": "Use chatGPT to chat with the bot.",
+          "options": [
+            {
+              "name": "question",
+              "description": "The question to send to the bot.",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "imagine",
+          "usage": "Use Dall-E 3 to generate an image.",
+          "options": [
+            {
+              "name": "prompt",
+              "description": "The prompt to generate an image.",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "🎴 Yugioh 🎴",
+      "description": " ",
+      "commands": [
+        {
+          "name": "",
+          "usage": "",
+          "options": []
+        }
+      ]
+    },
+    {
+      "group": "others",
+      "description": " ",
+      "commands": [
+        {
+          "name": "info",
+          "usage": "Get the bot information.",
+          "options": []
+        },
+        {
+          "name": "help",
+          "usage": "Get the bot commands.",
+          "options": [
+            {
+              "name": "command",
+              "description": "The command to get the help.",
+              "required": false
+            }
+          ]
+        },
+        {
+          "name": "ping",
+          "usage": "Get the bot ping.",
+          "options": []
+        },
+        {
+          "name": "invite",
+          "usage": "Get the bot invite link.",
+          "options": []
+        },
+        {
+          "name": "support",
+          "usage": "Get the bot support link.",
+          "options": []
+        },
+        {
+          "name": "set-channel",
+          "usage": "Set the bot channel.",
+          "options": [
+            {
+              "name": "channel",
+              "description": "The new channel.",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "set-role",
+          "usage": "Set the bot role.",
+          "options": [
+            {
+              "name": "role",
+              "description": "The new role.",
+              "required": true
+            }
+          ]
+        },
+        {
+          "name": "set-emoji",
+          "usage": "Set the bot emoji.",
+          "options": [
+            {
+              "name": "emoji",
+              "description": "The new emoji.",
+              "required": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
