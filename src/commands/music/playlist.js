@@ -10,7 +10,7 @@ module.exports = {
         const trackManager = getTrackManager(interaction.guildId);
         const list = trackManager.listTrack();
         if (list.length === 0) {
-            await interaction.reply('The playlist is empty.');
+            await interaction.reply({content: "No track in current playlist", ephemeral: true});
         } else {
             const embed = {
                 color: 0x3498db,

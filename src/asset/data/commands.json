@@ -281,12 +281,18 @@
     },
     {
       "group": "🎴 Yugioh 🎴",
-      "description": " ",
+      "description": "Get/Search for yugioh cards !!\nCommands: yugioh.",
       "commands": [
         {
-          "name": "",
-          "usage": "",
-          "options": []
+          "name": "yugioh",
+          "usage": "Get a yugioh card.",
+          "options": [
+            {
+              "name": "name",
+              "description": "The name of the card.",
+              "required": true
+            }
+          ]
         }
       ]
     },

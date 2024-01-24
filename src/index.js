@@ -57,7 +57,7 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     try {
         main().then(() => console.log("Application has started successfully!"));
-        console.log(`Example app listening on port ${port}`)
+        console.log(`App listening on port ${port}`)
     } catch (err) {
         console.log(`Application start fail with error: ${err}`)
     }

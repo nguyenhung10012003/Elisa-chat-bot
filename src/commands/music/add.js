@@ -13,10 +13,10 @@ module.exports = {
         ),
     async execute(interaction) {
         const q = interaction.options.getString('q');
-        await interaction.deferReply();
+        await interaction.deferReply({ephemeral: true});
         const trackManager = getTrackManager(interaction.guildId);
         const {url, title} = await search(q);
         trackManager.addToQueue({url, title});
-        await interaction.followUp(`Added ${title} to current playlist`);
+        await interaction.editReply(`Added ${title} to current playlist`);
     }
 }

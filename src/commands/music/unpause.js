@@ -9,6 +9,6 @@ module.exports = {
     async execute(interaction) {
         const trackManager = getTrackManager(interaction.guildId);
         trackManager.unpause();
-        await interaction.reply("Unpaused current track");
+        await interaction.reply({content: 'Unpaused current song', ephemeral: true});
     }
 }

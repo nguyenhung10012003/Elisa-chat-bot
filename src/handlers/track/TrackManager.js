@@ -1,6 +1,6 @@
 const {
     joinVoiceChannel, createAudioPlayer, createAudioResource, NoSubscriberBehavior,
-    AudioPlayerStatus, VoiceConnectionStatus, entersState
+    AudioPlayerStatus, VoiceConnectionStatus, entersState, AudioPlayer
 } = require("@discordjs/voice");
 require('dotenv').config();
 const ytdl = require('ytdl-core-discord')
@@ -14,9 +14,22 @@ class TrackManager {
         this.volume = 50;
         this.connection = null;
         this.player = null;
+        this.channelId = null;
+    }
+
+    initState() {
+        this.queue = [];
+        this.loop = false;
+        this.current = 0;
+        this.volume = 50;
+        this.connection = null;
+        this.player = null;
+        this.channelId = null;
     }
 
     connectVoiceChannel(voiceChannel) {
+        this.initState();
+        this.channelId = voiceChannel.id;
         this.connection = joinVoiceChannel({
                                                channelId: voiceChannel.id,
                                                guildId: voiceChannel.guild.id,
@@ -46,8 +59,18 @@ class TrackManager {
             }
         });
 
+        let timeout;
+
         this.player.on('stateChange', (oldState, newState) => {
             console.log(`Audio player transitioned from ${oldState.status} to ${newState.status}`);
+            clearTimeout(timeout);
+        });
+
+        this.player.on(AudioPlayerStatus.Idle, () => {
+            timeout = setTimeout(() => {
+                this.destroyVoiceChannel();
+            }, 5000);
+            this.playNext();
         });
 
         this.player.on('error', error => {
@@ -58,6 +81,12 @@ class TrackManager {
 
     destroyVoiceChannel() {
         this.connection.destroy();
+        this.connection = null;
+        this.channelId = null;
+    }
+
+    setIdle() {
+        this.player.stop();
     }
 
     isConnected() {
@@ -70,8 +99,11 @@ class TrackManager {
     }
 
     removeFromQueue(index) {
-        if (index <= this.current) this.current--;
-        this.queue.splice(index, 1);
+        if (index < this.queue.length) {
+            if (index <= this.current) this.current--;
+            this.queue.splice(index, 1);
+            return true;
+        } else return false;
     }
 
     async playNext() {
@@ -82,8 +114,6 @@ class TrackManager {
                 this.player.play(createAudioResource(
                     await ytdl(this.queue[this.current].url, {highWaterMark: 1 << 25, filter: 'audioonly'}))
                 );
-            } else {
-                this.connection.destroy();
             }
         } else {
             this.player.play(createAudioResource(
@@ -98,9 +128,6 @@ class TrackManager {
         const resource = createAudioResource(stream);
         this.player.play(resource);
         this.connection.subscribe(this.player);
-        this.player.on(AudioPlayerStatus.Idle, () => {
-            this.playNext();
-        })
     }
 
     setLoop(isLoop) {

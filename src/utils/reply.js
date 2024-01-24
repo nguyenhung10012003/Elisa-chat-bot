@@ -1,4 +1,4 @@
-const createReply = (content, embeds, components = [], actions = {}) => {
+const createReply = (content, embeds = [], components = [], ephemeral = false, actions = {}) => {
     return {
         content: content,
         embeds: embeds,

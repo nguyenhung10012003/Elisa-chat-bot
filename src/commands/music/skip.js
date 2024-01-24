@@ -9,5 +9,6 @@ module.exports = {
     async execute(interaction) {
         const trackManager = getTrackManager(interaction.guildId);
         await trackManager.playNext();
+        await interaction.reply({content: `Skipped current track`, ephemeral: true});
     }
 }

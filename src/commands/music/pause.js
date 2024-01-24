@@ -9,6 +9,6 @@ module.exports = {
     async execute(interaction) {
         const trackManager = getTrackManager(interaction.guildId);
         trackManager.pause();
-        await interaction.reply('Paused current track')
+        await interaction.reply({content: 'Paused current song', ephemeral: true})
     }
 }
